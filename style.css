@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(to right, #3345e3, #aae4aa);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 80px;
+    width: 700px;
+    height: 500px;
+}
+
+.tabs{
+    width: 300px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.tabs input{
+    appearance: none;
+    display: none;
+}
+
+.images{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.images label{
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    background-color: #fff;
+    width: 100%;
+    padding: 5px 10px;
+    transition: .5s;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.tabs input:nth-child(1):checked ~.images label:nth-child(1),
+.tabs input:nth-child(2):checked ~.images label:nth-child(2),
+.tabs input:nth-child(3):checked ~.images label:nth-child(3),
+.tabs input:nth-child(4):checked ~.images label:nth-child(4){
+    transform: translateX(20px);
+    box-shadow: 8px 8px 0 0 #100f47;
+}
+
+.images label img{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px;
+    pointer-events: none;
+    user-select: none;
+}
+.images label span{
+    display: block;
+    user-select: none;
+    pointer-events: none;
+    font-size: 14px;
+}
+.images label span.user-name{
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.content{
+    position: absolute;
+    left: 650px;
+    width: 500px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 8px 8px 0 #0d7ba9;
+}
+.content .contentBox{
+    padding: 50px;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s
+}
+.content .contentBox h2{
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.content .contentBox p{
+    line-height: 1.7;
+    opacity: .8;
+    font-size: 16px;
+    text-align: justify;
+}
+
+.tabs input:nth-child(1):checked ~.content .contentBox:nth-child(1),
+.tabs input:nth-child(2):checked ~.content .contentBox:nth-child(2),
+.tabs input:nth-child(3):checked ~.content .contentBox:nth-child(3),
+.tabs input:nth-child(4):checked ~.content .contentBox:nth-child(4){
+    opacity: 1;
+    visibility: visible;
+}
